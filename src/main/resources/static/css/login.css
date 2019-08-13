@@ -1,0 +1,17 @@
+.login{
+    width: 350px;
+    height: 260px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-130px;
+    margin-left:-130px;
+}
+
+body{
+    background: url("../img/photo.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
