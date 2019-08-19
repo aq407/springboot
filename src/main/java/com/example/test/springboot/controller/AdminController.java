@@ -5,10 +5,11 @@ import com.example.test.springboot.moder.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-/*jkjkjkj*/
 @Controller
 public class AdminController {
     @Autowired
@@ -18,6 +19,15 @@ public class AdminController {
     public String listAll(Model model){
         List<User> cs = logonMapper.findAll();
             model.addAttribute("us",cs);
+        return "admin";
+    }
+
+    @PostMapping("/updata")
+    public String updata(@RequestParam("uid") Integer uid,
+                         @RequestParam("uname") String uname,
+                         @RequestParam("upwd") String upwd
+                         ){
+        logonMapper.update(uname,upwd,uid);
         return "admin";
     }
 }

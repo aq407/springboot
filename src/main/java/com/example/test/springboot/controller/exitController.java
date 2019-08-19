@@ -21,7 +21,7 @@ public class exitController {
         response.addCookie(cookie);
 
 
-        return "redirect:index";
+        return "redirect:/";
 
     }
 

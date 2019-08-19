@@ -1,8 +1,8 @@
 package com.example.test.springboot.exception;
-/*
+
 public class CustomizeException extends RuntimeException {
     private String message;
-
+/*
     public CustomizeException(String message) {
         this.message = message;
     }
@@ -10,6 +10,5 @@ public class CustomizeException extends RuntimeException {
     @Override
     public String getMessage() {
         return message;
-    }
+    }*/
 }
-*/

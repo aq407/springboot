@@ -33,7 +33,7 @@
         <td th:text="${user.getPassword()}"></td>
         <td><a th:href="@{/Delete(id=${user.id})}">删除</a>&nbsp;|&nbsp;
             <input type="hidden" th:value="${user.id}">
-            <a data-toggle="modal" data-target="#myModal" th:href="@{'updata/'+${user.id}}">修改</a></td>
+            <a data-toggle="modal" data-target="#myModal" href="/updata">修改</a></td>
     </tr>
     </tbody>
 
@@ -41,7 +41,7 @@
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form method="post" th:action="@{'updata/'+${us}">
+        <form method="post" action="/updata">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

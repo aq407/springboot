@@ -47,7 +47,7 @@ public class LoginController {
            request.getSession().setAttribute("user",users);
            System.out.println( request.getSession().getId());
            request.getSession().setAttribute("userId",users.getId());
-           return "redirect:index";
+           return "redirect:/";
        }
     }
 }

@@ -1,11 +1,20 @@
 .login{
-    width: 350px;
-    height: 260px;
-    position:absolute;
-    top:50%;
-    left:50%;
-    margin-top:-130px;
-    margin-left:-130px;
+background-color: white;
+    box-shadow: 0 0 10px #777;
+    border: 1px solid #e8e8e8;
+    filter: drop-shadow(2px 4px 6px black);
+    height: 316px;
+}
+
+#login_form{
+    width: 320px;
+    left: 180px;
+    position: absolute;
+}
+
+.login-box{
+
+    position: absolute;
 }
 
 body{

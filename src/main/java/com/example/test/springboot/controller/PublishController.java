@@ -44,13 +44,19 @@ public class PublishController {
                             @RequestParam("description") String description,
                             @RequestParam("tag") String tag,
                             @RequestParam(value = "id",required = false) Integer id,
-
-                            HttpServletRequest request) {
+                            HttpServletRequest request,
+                            Model model) {
         User user = (User) request.getSession().getAttribute("user");
         System.out.println(user);
 
+        if (title == "" || description ==""){
+            model.addAttribute("error","请先输入问题或者标题");
+            return "publish";
+        }
+
         if (user == null) {
-            return "redirect:index";
+            model.addAttribute("error","请先登录");
+            return "publish";
         } else {
             Question question = new Question();
             question.setTitle(title);
@@ -59,7 +65,7 @@ public class PublishController {
             question.setCreator(user.getId());
             question.setId(id);
             questionService.createOrUpdate(question);
-            return "redirect:index";
+            return "redirect:/";
         }
     }
 }
