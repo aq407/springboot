@@ -22,6 +22,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="google-site-verification" content="QGf2OqDw91EjWtNE07HoLJi0x0G2rIYylk6jn6JEoEQ" />
 
+    <script>
+        alert($.sessionId);
+        alert($.cookie("user"));
+
+    </script>
+
 </head>
 <body>
 <div th:insert="~{navigation :: nav}"></div>
@@ -86,8 +92,10 @@
                     </div>
 
 
-                    <span class="alert alert-danger"></span>
-                    <button type="submit" class="btn btn-success btn-publish">回复</button>
+                    <span class="alert alert-danger" th:if="${session.user == null}" th:text="请先登录"></span>
+
+                    <button type="submit" class="btn btn-success btn-publish" th:if="${session.user != null}">回复</button>
+                    <button class="btn btn-success btn-publish" th:if="${session.user == null}"><a th:href="@{'../login'}">回复</a></button>
                 </form>
             </div>
 
