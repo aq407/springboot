@@ -20,13 +20,8 @@
     <link rel="stylesheet" href="/css/editormd.preview.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="google-site-verification" content="QGf2OqDw91EjWtNE07HoLJi0x0G2rIYylk6jn6JEoEQ" />
+    <meta name="google-site-verification" content="QGf2OqDw91EjWtNE07HoLJi0x0G2rIYylk6jn6JEoEQ"/>
 
-    <script>
-        alert($.sessionId);
-        alert($.cookie("user"));
-
-    </script>
 
 </head>
 <body>
@@ -35,32 +30,16 @@
     <div class="row">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <h3><span th:text="${question.title}"></span></h3>
-
             <hr>
-
-
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="question-view">
                 <textarea style="display:none;" th:text="${question.description}"></textarea>
-
             </div>
 
-            <script type="text/javascript">
-                $(function () {
-                    editormd.markdownToHTML("question-view", {
-                        // markdown : "[TOC]\n### Hello world!\n## Heading 2", // Also, you can dynamic set Markdown text
-                        // htmlDecode : true,  // Enable / disable HTML tag encode.
-                        // htmlDecode : "style,script,iframe",  // Note: If enabled, you should filter some dangerous HTML tags for website security.
-                    });
-                });
-            </script>
-
             <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
 
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                 <div class="media" th:each="comments : ${comment}" th:if="${comments.getParentId() == question.id}">
-
 
                     <div class="media-left media-middle">
                         <a href="#">
@@ -94,8 +73,12 @@
 
                     <span class="alert alert-danger" th:if="${session.user == null}" th:text="请先登录"></span>
 
-                    <button type="submit" class="btn btn-success btn-publish" th:if="${session.user != null}">回复</button>
-                    <button class="btn btn-success btn-publish" th:if="${session.user == null}"><a th:href="@{'../login'}">回复</a></button>
+                    <button type="submit" class="btn btn-success btn-publish" th:if="${session.user != null}">
+                        回复
+                    </button>
+                    <button class="btn btn-success btn-publish" th:if="${session.user == null}">
+                        <a th:href="@{'../login'}" style="color: white">回复</a>
+                    </button>
                 </form>
             </div>
 
