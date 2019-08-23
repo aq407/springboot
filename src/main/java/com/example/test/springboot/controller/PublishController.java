@@ -58,6 +58,7 @@ public class PublishController {
             model.addAttribute("error","请先登录");
             return "publish";
         } else {
+            System.out.println("执行");
             Question question = new Question();
             question.setTitle(title);
             question.setDescription(description);

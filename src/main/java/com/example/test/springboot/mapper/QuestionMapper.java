@@ -11,7 +11,7 @@ public interface QuestionMapper {
     @Insert("insert into t_question(title,description,tag,creator,Creation_time)values(#{title},#{description},#{tag},#{creator},#{CreationTime})")
     void create(Question question);
 
-    @Select("select * from t_question limit #{offset},#{size}")
+    @Select("select * from t_question order by id desc limit #{offset},#{size}")
     List<Question> list(@Param(value = "offset") Integer offset, @Param(value = "size") Integer size);
 
     @Select("select count(1) from t_question")
