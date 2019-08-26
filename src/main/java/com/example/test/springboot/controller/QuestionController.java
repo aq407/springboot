@@ -49,7 +49,7 @@ public class QuestionController {
         String html = question + num;
 
         if (content == "") {
-            //return "forward:/"+"question";
+
             return "redirect:/"+"question"+"/"+num;
         }
 
